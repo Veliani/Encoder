@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>URL Encoder</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>URL Encoder Preview</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -70,22 +70,20 @@
 <body>
   <div class="container">
     <h2 style="text-align:center; margin-bottom:1rem;">URL Encoder</h2>
-    <form method="post">
+    <form>
       <label for="text">Teks:</label>
-      <textarea name="text" id="text" rows="3" required></textarea>
+      <textarea id="text" rows="3">Selamat Siang Bpk.</textarea>
 
       <label for="repeat">Berapa kali diulang?</label>
-      <input type="number" name="repeat" id="repeat" min="1" value="1" required>
+      <input type="number" id="repeat" min="1" value="1" />
 
-      <button type="submit">Encode & Generate</button>
+      <button type="button">Encode & Generate</button>
     </form>
 
-    {% if result %}
     <div class="output" id="output">
       <button class="copy-btn" onclick="copyToClipboard()">Copy</button>
-      {{ result }}
+      Selamat%20Siang%20Bpk.<br>Selamat%20Siang%20Bpk.<br>
     </div>
-    {% endif %}
   </div>
 
   <script>
