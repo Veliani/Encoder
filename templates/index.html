@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Encoder</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background-color: #f9fafb;
+      color: #333;
+    }
+    .container {
+      max-width: 500px;
+      width: 100%;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    textarea, input, button {
+      width: 100%;
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 0.75rem;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background-color: #1d4ed8;
+    }
+    .output {
+      margin-top: 1rem;
+      background: #f3f4f6;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      white-space: pre-wrap;
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.8rem;
+      background: #4b5563;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+    .copy-btn:hover {
+      background: #374151;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 style="text-align:center; margin-bottom:1rem;">URL Encoder</h2>
+    <form method="post">
+      <label for="text">Teks:</label>
+      <textarea name="text" id="text" rows="3" required></textarea>
+
+      <label for="repeat">Berapa kali diulang?</label>
+      <input type="number" name="repeat" id="repeat" min="1" value="1" required>
+
+      <button type="submit">Encode & Generate</button>
+    </form>
+
+    {% if result %}
+    <div class="output" id="output">
+      <button class="copy-btn" onclick="copyToClipboard()">Copy</button>
+      {{ result }}
+    </div>
+    {% endif %}
+  </div>
+
+  <script>
+    function copyToClipboard() {
+      const output = document.getElementById("output").innerText;
+      navigator.clipboard.writeText(output).then(() => {
+        alert("Hasil telah disalin!");
+      }).catch(err => {
+        alert("Gagal menyalin: " + err);
+      });
+    }
+  </script>
+</body>
+</html>
